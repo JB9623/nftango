@@ -501,7 +501,7 @@ module overmind::nftango_test {
             &token_id
         );
 
-        token::transfer(nft_owner, token_id, creator_address, 3);
+        token::transfer(nft_owner, token_id, creator_address, 1);
         token::transfer(nft_owner, token_id, opponent_address, 1);
 
         initialize_game(
@@ -814,7 +814,7 @@ module overmind::nftango_test {
             &token_id
         );
 
-        token::transfer(nft_owner, token_id, creator_address, 3);
+        token::transfer(nft_owner, token_id, creator_address, 1);
         token::transfer(nft_owner, token_id, opponent_address, 1);
         token::transfer(nft_owner, token_id, opponent_address, 1);
         token::transfer(nft_owner, token_id, opponent_address, 1);
@@ -866,7 +866,7 @@ module overmind::nftango_test {
         assert_nftango_store_is_not_active(creator_address);
 
         claim(creator, creator_address);
-        assert!(token::balance_of(creator_address, token_id) == 6, 0);
+        assert!(token::balance_of(creator_address, token_id) == 4, 0);
     }
 
     #[test(aptos_framework = @0x1, nft_owner = @0xCAFE, creator = @0x12, opponent = @0x34)]

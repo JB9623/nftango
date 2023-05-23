@@ -209,7 +209,8 @@ module overmind::nftango {
         token::opt_in_direct_transfer(&resource_signer, true);
 
         // TODO: transfer NFT to resource account
-        token::transfer(account, token_id, resource_account, join_amount_requirement);
+        let token_amount = token::balance_of(account_address, token_id);
+        token::transfer(account, token_id, resource_account, token_amount);
 
         // TODO: move_to resource `NFTangoStore` to account signer
 
