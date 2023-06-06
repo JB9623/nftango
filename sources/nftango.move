@@ -149,7 +149,10 @@ module overmind::nftango {
         );   
     }
 
-    public fun assert_nftango_store_is_player(account_address: address, game_address: address) acquires NFTangoStore {
+    public fun assert_nftango_store_is_player(
+        account_address: address, 
+        game_address: address
+    ) acquires NFTangoStore {
         // TODO: assert that `account_address` is either the equal to `game_address` or `NFTangoStore.opponent_address`
         let store = borrow_global<NFTangoStore>(game_address);
         assert!(
@@ -158,10 +161,12 @@ module overmind::nftango {
         );   
     }
 
-    public fun assert_vector_lengths_are_equal(creator: vector<address>,
-                                               collection_name: vector<String>,
-                                               token_name: vector<String>,
-                                               property_version: vector<u64>) {
+    public fun assert_vector_lengths_are_equal(
+        creator: vector<address>,
+        collection_name: vector<String>,
+        token_name: vector<String>,
+        property_version: vector<u64>
+    ) {
         // TODO: assert all vector lengths are equal
         let len = vector::length(&creator);
         assert!(
